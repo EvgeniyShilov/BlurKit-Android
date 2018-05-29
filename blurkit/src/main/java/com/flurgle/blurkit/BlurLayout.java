@@ -158,8 +158,12 @@ public class BlurLayout extends FrameLayout {
         super.invalidate();
         Bitmap bitmap = blur();
         if (bitmap != null) {
-            mImageView.setImageBitmap(bitmap);
+            mImageView.setImageBitmap(getBlurredContent(bitmap));
         }
+    }
+
+    protected Bitmap getBlurredContent(Bitmap blur) {
+        return blur;
     }
 
     /**
