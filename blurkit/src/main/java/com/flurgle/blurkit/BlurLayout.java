@@ -461,4 +461,29 @@ public class BlurLayout extends FrameLayout {
         mLockedPoint = null;
     }
 
+    public void lock(boolean locked) {
+        if (locked) {
+            lockPosition();
+            lockView();
+        } else {
+            unlockPosition();
+            unlockView();
+        }
+    }
+
+    public float getDownscaleFactor() {
+        return mDownscaleFactor;
+    }
+
+    public int getBlurRadius() {
+        return mBlurRadius;
+    }
+
+    public int getFPS() {
+        return mFPS;
+    }
+
+    public float getCornerRadius() {
+        return mCornerRadius;
+    }
 }
