@@ -33,16 +33,16 @@ public class BlurLayout extends FrameLayout {
     // Customizable attributes
 
     /** Factor to scale the view bitmap with before blurring. */
-    private float mDownscaleFactor;
+    protected float mDownscaleFactor;
 
     /** Blur radius passed directly to stackblur library. */
-    private int mBlurRadius;
+    protected int mBlurRadius;
 
     /** Number of blur invalidations to do per second.  */
-    private int mFPS;
+    protected int mFPS;
 
     /** Corner radius for the layouts blur. To make rounded rects and circles. */
-    private float mCornerRadius;
+    protected float mCornerRadius;
 
     /** Is blur running? */
     private boolean mRunning;
@@ -469,6 +469,16 @@ public class BlurLayout extends FrameLayout {
             unlockPosition();
             unlockView();
         }
+    }
+
+    public void show() {
+        startBlur();
+        setVisibility(VISIBLE);
+    }
+
+    public void hide() {
+        setVisibility(GONE);
+        pauseBlur();
     }
 
     public float getDownscaleFactor() {
